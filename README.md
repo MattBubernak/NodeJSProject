@@ -1,2 +1,2 @@
-# NodeJSProject
-Project 3 for Foundations of Software Engineering
+# Node.JS
+A tutorial into Node.JS for Foundations of Software Engineering

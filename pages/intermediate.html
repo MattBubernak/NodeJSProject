@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+		<title>Bootstrap Tutorial</title>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></link>
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
+
+<body> 
+    <div class="container"> 
+        <h1>Intermediate</h1> 
+        <p>Now that we have shown you how to show basic content using bootstrap we are going to add some extra functionality using bootstrap. The next thing that most developers would need to know is how to make content dynamic. In most apps the way to do this is with user interaction. This page is going to dive into different GUI features that allow users to interact with your web page.</p>
+        
+        <br>
+        <h3>Buttons</h3>
+        <p>The first important way to interact with a gui is through the use of buttons. Bootstrap provides several different button options for us allowing developers to specify the exact look and feel. Hear are their options: </p>
+        
+        <br>
+        <button type="button" class="btn btn-default">Default</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-link">Link</button>
+        <button type="button" class="btn btn-primary">Primary</button>     
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+    
+        <br>
+        <p>Each one of these buttons can be used in a different situation providing their desired effect. In order to create these buttons you do the following:</p>
+        <br>
+        <pre>
+            <code>
+&ltbutton type="button" class="btn btn-default"&gtDefault&lt/button&gt
+&ltbutton type="button" class="btn btn-success"&gtSuccess&lt/button&gt
+&ltbutton type="button" class="btn btn-link"&gtLink&lt/button&gt
+&ltbutton type="button" class="btn btn-primary"&gtPrimary&lt/button&gt     
+&ltbutton type="button" class="btn btn-info"&gtInfo&lt/button&gt
+&ltbutton type="button" class="btn btn-warning"&gtWarning&lt/button&gt
+&ltbutton type="button" class="btn btn-danger"&gtDanger&lt/button&gt
+            </code>
+        </pre>
+        
+        <br> 
+        
+        <h3>Button Groups</h3>
+        <p>Bootstrap also provides a way to group buttons together. This can be a line of buttons or a group of buttons. Just like many other aspects of bootstrap, the way to do this is to put the buttons inside of a special container called a btn-group. </p>
+        <pre>
+            <code>
+&ltdiv class="btn-group"&gt
+    &ltbutton type="button" class="btn btn-primary"&gtYes&lt/button&gt
+    &ltbutton type="button" class="btn btn-primary"&gtMaybe&lt/button&gt
+    &ltbutton type="button" class="btn btn-primary"&gtNo&lt/button&gt
+&lt/div&gt
+            </code>
+        </pre>
+        <br>
+        <p>This has the effect of:</p>
+        <br>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary">Yes</button>
+            <button type="button" class="btn btn-primary">Maybe</button>
+            <button type="button" class="btn btn-primary">No</button>
+        </div>
+    
+        <h3>Forms</h3>
+        <p>Buttons are nice and can provide a great user experience but you can't do anything really useful unless you have user input. User input allows users to log in, provide information, and interact with the system in a way that you just can't do with anything else. Thy way html does this is with the use of forms. Luckey, for us Bootsrap has a way to make forms look nice and professional.</p>
+        <br>
+        <p>Below is an example of a very standard login form.</p>
+        <br>
+        <form role="form">
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd">
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox"> Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+            <br>
+        
+        <pre>
+            <code>
+&ltform role="form"&gt
+  &ltdiv class="form-group"&gt
+    &ltlabel for="email"&gtEmail address:&lt/label&gt
+    &ltinput type="email" class="form-control" id="email"&gt
+  &lt/div&gt
+  &ltdiv class="form-group"&gt
+    &ltlabel for="pwd"&gtPassword:</label>
+    &ltinput type="password" class="form-control" id="pwd"&gt
+  &lt/div&gt
+  &ltdiv class="checkbox"&gt
+    &ltlabel&gt&ltinput type="checkbox"&gt Remember me&lt/label&gt
+  &lt/div&gt
+  &ltbutton type="submit" class="btn btn-default"&gtSubmit&lt/button&gt
+&lt/form&gt
+            </code>
+        </pre>
+    
+        <h3>Inputs</h3>
+        <p>As you can see from above bootstrap provides several types of inputs we showed you a basic text field above using the form-control class. Following the theme of the rest of the tutorial, bootstrap provides more options.</p>
+    
+        <br>
+        <h4>Textareas</h4>
+        <div class="form-group">
+            <label for="comment">Bootstrap also provides text areas.</label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+        <br>
+        <p>The code for this looks like:</p>
+        <pre><code>
+&ltdiv class="form-group"&gt
+    &ltlabel for="comment"&gtBootstrap also provides text areas.&lt/label&gt
+    &lttextarea class="form-control" rows="5" id="comment"&gt&lt/textarea&gt
+&lt/div&gt        
+        </code></pre>
+    
+        <br>
+        <h3>Check Boxes</h3>
+        <p>In addition to text fields there are also two types of check boxes available for us to use. They are normal and inline check boxes. The main difference between the two is that normal text boxes align vertically and inline textboxes align on the same line.</p>
+    
+        <br>
+        <h4>Normal Checkboxes</h4>
+        <pre>
+            <code>
+&ltdiv class="checkbox"&gt
+  &ltlabel&gt&ltinput type="checkbox" value=""&gtPick Me&lt/label&gt
+&lt/div&gt
+&ltdiv class="checkbox"&gt
+  &ltlabel&gt&ltinput type="checkbox" value=""&gtNo Pick Me&lt/label&gt
+&lt/div&gt
+&ltdiv class="checkbox disabled"&gt
+  &ltlabel&gt&ltinput type="checkbox" value="" disabled&gtHow About Me&lt/label&gt
+&lt/div&gt
+            </code>
+        </pre>
+
+        <br>
+        <p>This code produces text boxes that look like:</p>
+        <div class="checkbox">
+            <label><input type="checkbox" value="">Pick Me</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" value="">No Pick Me</label>
+        </div>
+        <div class="checkbox disabled">
+            <label><input type="checkbox" value="" disabled>How About Me</label>
+        </div>
+        
+        <br>
+        <h4>Inline Checkboxes</h4>
+        <p>Inline check boxes look very similar to normal checkboxes but instead of appearing vertically they appear horizontally like:</p>
+        
+        <label class="checkbox-inline"><input type="checkbox" value="">Pick me</label>
+        <label class="checkbox-inline"><input type="checkbox" value="">No pick me</label>
+        <label class="checkbox-inline"><input type="checkbox" value="">How about me</label>
+    
+        <br>
+        <br>
+        <p>The code for this is very similar the normal checkboxes but the label uses the checkbox-inline class instead of the checkbox class for div.</p>
+        <pre>
+            <code>
+&ltlabel class="checkbox-inline"&gt&ltinput type="checkbox" value=""&gtPick me&lt/label&gt
+&ltlabel class="checkbox-inline"&gt&ltinput type="checkbox" value=""&gtNo Pick Me&lt/label&gt
+&ltlabel class="checkbox-inline"&gt&ltinput type="checkbox" value=""&gtHow About Me&lt/label&gt
+            </code>
+        </pre>
+    
+        <br>
+
+        <h3>Radio Buttons</h3>
+        <p>Another staple that every web framework has is radio buttons. Radio buttons allow you to select one option out of a list of several. Radio buttons in boot strap look like:</p>
+    
+        <div class="radio">
+            <label><input type="radio" name="optradio">Pick me</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio">No Pick Me</label>
+        </div>
+        <div class="radio disabled">
+            <label><input type="radio" name="optradio" disabled>How About Me</label>
+        </div>
+    
+        <p>And of course this wouldn't be a tutorial without showing you the code.</p>
+    
+        <pre>
+            <code>
+&ltdiv class="radio"&gt
+    &ltlabel&gt&ltinput type="radio" name="optradio"&gtPick me&lt/label&gt
+&lt/div&gt
+&ltdiv class="radio"&gt
+    &ltlabel&gt&ltinput type="radio" name="optradio"&gtNo Pick Me&lt/label&gt
+&lt/div&gt
+&ltdiv class="radio disabled"&gt
+    &ltlabel&gt&ltinput type="radio" name="optradio" disabled&gtHow About Me&lt/label&gt
+&lt/div&gt
+            </code>
+        </pre>
+    
+        <p>Radio buttons, just like checkboxes, have an inline mode. To use them you do it a very similar way to the inline checkbox. </p>
+        <pre>
+            <code>
+&ltlabel class="radio-inline"&gt&ltinput type="radio" name="optradio"&gtPick Me&lt/label&gt
+&ltlabel class="radio-inline"&gt&ltinput type="radio" name="optradio"&gtNo Pick Me&lt/label&gt
+&ltlabel class="radio-inline"&gt&ltinput type="radio" name="optradio"&gtHow About Me&lt/label&gt
+            </code>
+        </pre>
+    
+        <p>These look like:</p>
+        <br>
+        <label class="radio-inline"><input type="radio" name="optradio">Pick Me</label>
+        <label class="radio-inline"><input type="radio" name="optradio">No Pick Me</label>
+        <label class="radio-inline"><input type="radio" name="optradio">How About Me</label>
+    
+        <h3>Bootstrap Select Lists</h3>
+        <p>Finally, the last form of input that we are going to talk about are bootstrap's select lists. Bootstrap provides two ways to show select lists. They can either be shown in a drop down or in a multiple select list.</p>
+        <br>
+        <h4>Drop Down</h4>
+        <p>The drop down is another fundamental element for gathering user input. It allows users to select an option from a list of choices. The bootstrap drop down looks like:</p>
+        <form role="form">
+            <div class="form-group">
+                <label for="sel1">Drop Down Pick the One you Want:</label>
+                <select class="form-control">
+                <option>You can select me</option>
+                <option>You can select me too</option>
+                <option>I am the best</option>
+                </select>
+            </div>
+        </form>
+    
+        <p>In order to create a drop down you need to create a form that has a select tag that uses the class .form-control. This looks like:</p>
+    
+        <pre>
+            <code>
+&ltform role="form"&gt
+    &ltdiv class="form-group"&gt
+        &ltlabel for="sel1"&gtDrop Down Pick the One you Want:&lt/label&gt
+        &ltselect class="form-control"&gt
+            &ltoption&gtYou can select me&lt/option&gt
+            &ltoption&gtYou can select me too&lt/option&gt
+            &ltoption&gtI am the best&lt/option&gt
+        &lt/select&gt
+    &lt/div&gt
+&lt/form&gt
+            </code>
+        </pre>
+    
+        <br>
+        <p>The other kind of Select List is the multiple select list.</p>
+        <form role="form">
+        <div class="form-group">  
+            <label for="sel2">This is a multiple select list: You can hold shift to select more than one:</label>
+            <select multiple class="form-control">
+                <option>Select Me</option>
+                <option>Hold Shift to Select me Too</option>
+                <option>You can select all of us if you want to</option>
+            </select>
+        </div>
+        </form>
+    
+        <br>
+    
+        <p>The code to implement this:</p>
+        <pre>
+            <code>
+&ltform role="form"&gt
+    &ltdiv class="form-group"&gt
+        &ltlabel for="sel2">This is a multiple select list: You can hold shift to select more than one:&lt/label&gt
+            &ltselect multiple class="form-control"&gt
+                &ltoption&gtSelect Me&lt/option&gt
+                &ltoption&gtHold Shift to Select me Too&lt/option&gt
+                &ltoption&gtYou can select all of us if you want to&lt/option&gt
+            &lt/select&gt
+        &lt/div&gt
+        &lt/form&gt
+            </code>
+        </pre>
+    
+    <h3>Next</h3>
+    <p>These are the main forms of input in bootstrap. As you can see there are many options and an almost infinite amount of ways to style everything. Bootstrap provides a great framework to integrate user interaction. Now that we have general bootstrap down we are going to talk about more advanced features in bootstrap. Click on advanced to learn more.
+    </div>
+
+</body>
+</html>

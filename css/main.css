@@ -1,0 +1,65 @@
+.line-separator{
+height:1px;
+background:#717171;
+border-bottom:1px solid #313030;
+}
+.page-section{
+	font-weight:bold;
+}
+.page-section-sub{
+	font-style:italic;
+}
+
+body {
+    background-color: #b0c4de;
+}
+
+.span-test {
+}
+
+.sub-panel {
+    background-color: #eee;
+    margin-left: 5px;
+}
+
+body {
+}
+
+.center-panel {
+    box-shadow: 0px 0px 10px #222;
+    background-color: white;
+    text-align: left;
+    margin: auto;
+
+    width: 90%;
+}
+
+.example {
+    background-color: #eee;
+    border-radius: 5px;
+    border: 2px solid white;
+    text-align: center;
+    padding: 20px;
+
+    transition: background-color 0.2s;
+}
+
+.example:hover {
+    background-color: #e5e5e5;
+}
+
+.verb {
+    font-family: monospace;
+    background-color: #eee;
+}
+
+.inner-example {
+    padding: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.classname {
+    font-family: monospace;
+    font-color: gray;
+}

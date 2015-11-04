@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+		<title>Bootstrap Tutorial</title>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></link>
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
+
+<body> <div class="container">
+
+        <h1>Scaffolding</h1>
+
+        From the beginning, Bootstrap was designed to work with
+        all kinds of different platforms. As a result, Bootstrap
+        created its own layout system it calls <i>Scaffolding</i>.
+        Unlike more traditional web layouts, scaffolding is designed
+        to actively respond to changing screen sizes.
+
+        Scaffolding is a very powerful tool because it allows the developer
+        to reason about the layout of the application in terms of a grid rather
+        than in terms of pixels.
+
+        This Grid system is actually very easy to work with. In Bootstrap, there
+        are 12 columns. There really is no reason why it has to be 12 columns,
+        it's just that 12 is easily divisible by more numbers than, say, 13.
+
+        In order to take advantage of this grid system, you must first create a
+        container div like so:
+
+        <pre>
+            &lt;div class="container"&gt;
+        </pre>
+
+        Now, inside of that class, you must create a sub-div with the class
+        "row" like so:
+
+        <pre>
+            &lt;div class="row"&gt;
+        </pre>
+
+        now you are ready to use the grid system to its full potential.
+        inside of here, you may use several different bootstrap builtin
+        classes that allow you to use this grid. For example, the css
+        class <span class="classname">col-md-4</span> mean that for
+        medium devices, this element will span 4 columns.
+        likewise, a  classname of <span class="classname">col-md-12</span>
+        will make the element take up the entire available width for that container.
+
+        As an example, I can put 3 equal-sized panels next to each other with ease:
+
+
+        <div class="container inner-example">
+            <div class="row">
+                <div class="col-md-4 example">col-md-4</div>
+                <div class="col-md-4 example">col-md-4</div>
+                <div class="col-md-4 example">col-md-4</div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#code1" aria-expanded="false" aria-controls="code1">
+                        Code
+                    </a>
+                </h4>
+            </div>
+            <div id="code1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="code1">
+                <div class="panel-body">
+<pre>
+&lt;div class="container inner-example"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-md-4 example"&gt;col-md-4&lt;/div&gt;
+        &lt;div class="col-md-4 example"&gt;col-md-4&lt;/div&gt;
+        &lt;div class="col-md-4 example"&gt;col-md-4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+            </div>
+        </div>
+
+        In Bootstrap, if I overflow the number of columns, the
+        pane will simply wrap to the next row as in the following
+        example:
+
+        <div class="container inner-example">
+            <div class="row">
+                <div class="col-md-4 example">col-md-4</div>
+                <div class="col-md-1 example">col-md-1</div>
+                <div class="col-md-4 example">col-md-4</div>
+                <div class="col-md-5 example">col-md-5</div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#code2" aria-expanded="false" aria-controls="code2">
+                        Code
+                    </a>
+                </h4>
+            </div>
+            <div id="code2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="code2">
+                <div class="panel-body">
+<pre>
+&lt;div class="container inner-example"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-md-4 example"&gt;col-md-4&lt;/div&gt;
+        &lt;div class="col-md-1 example"&gt;col-md-1&lt;/div&gt;
+        &lt;div class="col-md-4 example"&gt;col-md-4&lt;/div&gt;
+        &lt;div class="col-md-5 example"&gt;col-md-5&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+            </div>
+        </div>
+
+        That's pretty cool, and really useful as in plain HTML,
+        this is not trivial to do, but Bootstrap makes it
+        quite basic.
+
+
+        As one can expect, we are able to mix and match these
+        different classes to create some cool patters. This
+        is as the next example shows.
+
+
+        <div class="container inner-example">
+        <div class="row">
+            <div class="col-md-12 example">col-md-12</div>
+
+            <div class="col-md-6 example">col-md-6</div>
+            <div class="col-md-6 example">col-md-6</div>
+
+            <div class="col-md-3 example">col-md-3</div>
+            <div class="col-md-3 example">col-md-3</div>
+
+            <div class="col-md-4 example">col-md-4</div>
+            <div class="col-md-2 example">col-md-2</div>
+
+            <div class="col-md-1 example">col-md-1</div>
+            <div class="col-md-2 example">col-md-2</div>
+            <div class="col-md-3 example">col-md-3</div>
+
+            <div class="col-md-2 example">col-md-2</div>
+            <div class="col-md-2 example">col-md-2</div>
+
+            <div class="col-md-2 example">col-md-2</div>
+        </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#code3" aria-expanded="false" aria-controls="code3">
+                        Code
+                    </a>
+                </h4>
+            </div>
+            <div id="code3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="code3">
+                <div class="panel-body">
+<pre>
+&lt;div class="container inner-example"&gt;
+&lt;div class="row"&gt;
+    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+
+    &lt;div class="col-md-6 example"&gt;col-md-6&lt;/div&gt;
+    &lt;div class="col-md-6 example"&gt;col-md-6&lt;/div&gt;
+
+    &lt;div class="col-md-3 example"&gt;col-md-3&lt;/div&gt;
+    &lt;div class="col-md-3 example"&gt;col-md-3&lt;/div&gt;
+
+    &lt;div class="col-md-4 example"&gt;col-md-4&lt;/div&gt;
+    &lt;div class="col-md-2 example"&gt;col-md-2&lt;/div&gt;
+
+    &lt;div class="col-md-1 example"&gt;col-md-1&lt;/div&gt;
+    &lt;div class="col-md-2 example"&gt;col-md-2&lt;/div&gt;
+    &lt;div class="col-md-3 example"&gt;col-md-3&lt;/div&gt;
+
+    &lt;div class="col-md-2 example"&gt;col-md-2&lt;/div&gt;
+    &lt;div class="col-md-2 example"&gt;col-md-2&lt;/div&gt;
+
+    &lt;div class="col-md-2 example"&gt;col-md-2&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+            </div>
+        </div>
+
+        As one can see, this really does look like scaffolding from
+        this perspective. This is at its core, the way Bootstrap
+        structures it's applications.
+        </p>
+
+        <p>
+            There is more to scaffolding than what meets the eye. You may in
+            fact already be confused as to what I've been rambling about
+            because Bootstrap is "responsive". That means that Bootstrap
+            will respond to the size of the screen it has to work with
+            and automatically adjust the styling of the elements to
+            make sure they all fit and look good. For example, if you
+            are looking at this page from a mobile platform like a smart phone,
+            you may see just a bunch of rows and it might be lacking the structure
+            I have been raving about. Go ahead and try this. If on a desktop browser,
+            try to zoom in and see bootstrap respond as it runs out of space.
+        </p>
+
+        These scaffolds may also be nested within each other as the next example
+        attempts to highlight:
+
+        <div class="container inner-example">
+        <div class="row">
+            <div class="col-md-12 example">col-md-12</div>
+            <div class="col-md-6" style="padding: 0;">
+                <div class="col-md-12 example">col-md-12</div>
+                <div class="col-md-6" style="padding: 0;">
+                    <div class="col-md-12 example">col-md-12</div>
+                    <div class="col-md-6" style="padding: 0;">
+                        <div class="col-md-12 example">col-md-12</div>
+                        <div class="col-md-6" style="padding: 0;">
+            <div class="col-md-12 example">col-md-12</div>
+            <div class="col-md-6" style="padding: 0;">
+            </div>
+            <div class="col-md-6" style="padding: 0;">
+            </div>
+                        </div>
+                        <div class="col-md-6" style="padding: 0;">
+            <div class="col-md-12 example">col-md-12</div>
+            <div class="col-md-6" style="padding: 0;">
+            </div>
+            <div class="col-md-6" style="padding: 0;">
+            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="padding: 0;">
+                        <div class="col-md-12 example">col-md-12</div>
+                        <div class="col-md-6" style="padding: 0;">
+            <div class="col-md-12 example">col-md-12</div>
+            <div class="col-md-6" style="padding: 0;">
+            </div>
+            <div class="col-md-6" style="padding: 0;">
+            </div>
+                        </div>
+                        <div class="col-md-6" style="padding: 0;">
+            <div class="col-md-12 example">col-md-12</div>
+            <div class="col-md-6" style="padding: 0;">
+            </div>
+            <div class="col-md-6" style="padding: 0;">
+            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding: 0;">
+                    <div class="col-md-12 example">col-md-12</div>
+                    <div class="col-md-6" style="padding: 0;">
+                        <div class="col-md-12 example">col-md-12</div>
+                        <div class="col-md-6" style="padding: 0;">
+            <div class="col-md-12 example">col-md-12</div>
+            <div class="col-md-6" style="padding: 0;">
+            </div>
+            <div class="col-md-6" style="padding: 0;">
+            </div>
+                        </div>
+                        <div class="col-md-6" style="padding: 0;">
+            <div class="col-md-12 example">col-md-12</div>
+            <div class="col-md-6" style="padding: 0;">
+            </div>
+            <div class="col-md-6" style="padding: 0;">
+            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="padding: 0;">
+                        <div class="col-md-12 example">col-md-12</div>
+                        <div class="col-md-6" style="padding: 0;">
+            <div class="col-md-12 example">col-md-12</div>
+            <div class="col-md-6" style="padding: 0;">
+            </div>
+            <div class="col-md-6" style="padding: 0;">
+            </div>
+                        </div>
+                        <div class="col-md-6" style="padding: 0;">
+            <div class="col-md-12 example">col-md-12</div>
+            <div class="col-md-6" style="padding: 0;">
+            </div>
+            <div class="col-md-6" style="padding: 0;">
+            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="padding: 0;">
+                <div class="col-md-12 example">col-md-12</div>
+                <div class="col-md-6" style="padding: 0;">
+                    <div class="col-md-12 example">col-md-12</div>
+                    <div class="col-md-6" style="padding: 0;">
+                        <div class="col-md-12 example">col-md-12</div>
+                        <div class="col-md-6" style="padding: 0;">
+                            <div class="col-md-12 example">col-md-12</div>
+                            <div class="col-md-6" style="padding: 0;">
+                            </div>
+                            <div class="col-md-6" style="padding: 0;">
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="padding: 0;">
+                            <div class="col-md-12 example">col-md-12</div>
+                            <div class="col-md-6" style="padding: 0;">
+                            </div>
+                            <div class="col-md-6" style="padding: 0;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="padding: 0;">
+                        <div class="col-md-12 example">col-md-12</div>
+                        <div class="col-md-6" style="padding: 0;">
+                            <div class="col-md-12 example">col-md-12</div>
+                            <div class="col-md-6" style="padding: 0;">
+                            </div>
+                            <div class="col-md-6" style="padding: 0;">
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="padding: 0;">
+                            <div class="col-md-12 example">col-md-12</div>
+                            <div class="col-md-6" style="padding: 0;">
+                            </div>
+                            <div class="col-md-6" style="padding: 0;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="padding: 0;">
+                    <div class="col-md-12 example">col-md-12</div>
+                    <div class="col-md-6" style="padding: 0;">
+                        <div class="col-md-12 example">col-md-12</div>
+                        <div class="col-md-6" style="padding: 0;">
+                            <div class="col-md-12 example">col-md-12</div>
+                            <div class="col-md-6" style="padding: 0;">
+                            </div>
+                            <div class="col-md-6" style="padding: 0;">
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="padding: 0;">
+                            <div class="col-md-12 example">col-md-12</div>
+                            <div class="col-md-6" style="padding: 0;">
+                            </div>
+                            <div class="col-md-6" style="padding: 0;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="padding: 0;">
+                        <div class="col-md-12 example">col-md-12</div>
+                        <div class="col-md-6" style="padding: 0;">
+                            <div class="col-md-12 example">col-md-12</div>
+                            <div class="col-md-6" style="padding: 0;">
+                            </div>
+                            <div class="col-md-6" style="padding: 0;">
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="padding: 0;">
+                            <div class="col-md-12 example">col-md-12</div>
+                            <div class="col-md-6" style="padding: 0;">
+                            </div>
+                            <div class="col-md-6" style="padding: 0;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#code4" aria-expanded="false" aria-controls="code4">
+                        Code
+                    </a>
+                </h4>
+            </div>
+            <div id="code4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="code4">
+                <div class="panel-body">
+<pre>
+&lt;div class="container inner-example"&gt;
+&lt;div class="row"&gt;
+    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+        &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+        &lt;div class="col-md-6" style="padding: 0;"&gt;
+            &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+            &lt;div class="col-md-6" style="padding: 0;"&gt;
+                &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+                &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-md-6" style="padding: 0;"&gt;
+                &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+                &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="col-md-6" style="padding: 0;"&gt;
+            &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+            &lt;div class="col-md-6" style="padding: 0;"&gt;
+                &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+                &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-md-6" style="padding: 0;"&gt;
+                &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+                &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-6" style="padding: 0;"&gt;
+        &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+        &lt;div class="col-md-6" style="padding: 0;"&gt;
+            &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+            &lt;div class="col-md-6" style="padding: 0;"&gt;
+                &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+                &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+                    &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+                    &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-md-6" style="padding: 0;"&gt;
+                &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+                &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+                    &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+                    &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="col-md-6" style="padding: 0;"&gt;
+            &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+            &lt;div class="col-md-6" style="padding: 0;"&gt;
+                &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+                &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+                    &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+                    &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-md-6" style="padding: 0;"&gt;
+                &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+                &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+                    &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;div class="col-md-12 example"&gt;col-md-12&lt;/div&gt;
+                    &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-md-6" style="padding: 0;"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+            </div>
+        </div>
+
+
+        As you can see, by nesting the scaffolding we can go infinitely far beyond
+        the basic granularity given to us by default. At the lowest level, we have
+        16 12-sized elements.
+
+        That's all great, but let's take a minute to talk about stacking. By default,
+        Bootstrap has set some sizes that tell when the elements should stack. What
+        determines that threshold is the middle qualifier in the class name,
+        namely "md". This means that element should not stack on a medium-sized device.
+        What medium means is subject to what Bootstrap says.
+
+        We can change this to a variety of different tags. For example, the tag "sm"
+        will only stack on "small" devices, "lg" will stack on "large" devices and
+        so on and so forth.
+
+        So lets say we want to create a set of div's such that on small devices they
+        will start to collapse, but not all the way. That may look something like
+        this:
+
+        <div class="inner-example">
+        <div class="row">
+            <div class="col-md-4 example">
+        I am something on the left side or on the top, it doesn't really
+        matter, maybe I'm a directory listing or something, but I don't really
+        need to be next to the content. I'd prefer it though, if there is
+        enough screen to cover it, but ultimately I don't care, so I'm either
+        next to the content or right above it. It really doesn't matter.
+            </div>
+
+            <div class="col-md-8" style="padding: 0">
+                <div class="col-xs-8 example">
+                    I'm the main content, so I take a nice big chunk
+                    of real-estate right in the middle of the screen
+                    because everyone likes me so much!
+
+                    I have to right next to this thing on the right whenever
+                    possible. If there is any screen real estate, we would
+                    like to remain side-by-side. We do this by specifying
+                    "xs" instead of "md". That guy on the left can go above
+                    me, I don't really care, so for him, he can just use "md",
+                    but me and the guy on the right are tight.
+                </div>
+                <div class="col-xs-4 example">
+                    I'm the right side of things. I must be right next to the main content
+                    except on the smallest of devices. Maybe I hold annotations to the main content
+                    or something that make me want to sit right here!.
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#code5" aria-expanded="false" aria-controls="code5">
+                        Code
+                    </a>
+                </h4>
+            </div>
+            <div id="code5" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="code5">
+                <div class="panel-body">
+<pre>
+&lt;div class="row"&gt;
+    &lt;div class="col-md-4 example"&gt;
+        I am something on the left side or on the top, it doesn't really
+        matter, maybe I'm a directory listing or something, but I don't really
+        need to be next to the content. I'd prefer it though, if there is
+        enough screen to cover it, but ultimately I don't care, so I'm either
+        next to the content or right above it. It really doesn't matter.
+    &lt;/div&gt;
+
+    &lt;div class="col-md-8" style="padding: 0"&gt;
+        &lt;div class="col-xs-8 example"&gt;
+            I'm the main content, so I take a nice big chunk
+            of real-estate right in the middle of the screen
+            because everyone likes me so much!
+
+            I have to right next to this thing on the right whenever
+            possible. If there is any screen real estate, we would
+            like to remain side-by-side. We do this by specifying
+            "xs" instead of "md". That guy on the left can go above
+            me, I don't really care, so for him, he can just use "md",
+            but me and the guy on the right are tight.
+        &lt;/div&gt;
+        &lt;div class="col-xs-4 example"&gt;
+            I'm the right side of things. I must be right next to the main content
+            except on the smallest of devices. Maybe I hold annotations to the main content
+            or something that make me want to sit right here!.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                </div>
+            </div>
+        </div>
+
+        In the previous example, this scaffolding will try its hardest to keep the
+        middle and the right side together. The left panel will appear on the left
+        on a medium device and anything larger, but on a smaller device, it will
+        appear above the other two because there is enough screen real estate.
+
+
+    </div>
+</body>
+
+</html>
