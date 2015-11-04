@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+		<title>Node JS Tutorial</title>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></link>
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
+
+<body> 
+    <p> In order to maximize the potential of Node JS, you will want to consider the many modules that can be used with it. One of the most popular modules is Express JS. In fact, express is part of a very common JS based software stack, called MEAN(Mongo,Express,Angular,Node). 
+    </p>
+    <img src="img/expressLogo.png" ></img>
+    <p> In order to install a module, you will need to use the "npm" command. This should be available with your basic Node install. To install express, use the following command: 
+    </p>
+    <pre><code>
+        npm install express
+    </pre></code>
+    You should now see that you have a "node_moduels" directory, containing, at the least, an express directory. With express we can very easily spin up a simple static file server. Consider the code below: 
+    </p>
+    <pre><code>
+        var express = require('express'),
+        app = express();
+
+        app.use(express.static(__dirname + '/public'));
+
+        app.listen(8080);
+    </pre></code>
+    <p>
+    Running this code creates a static server that serves up the public directory. Placing a simple index.html in this location will allow you to create a basic website, hosted via node JS.
+    </p> 
+</body>
+</html>
