@@ -20,42 +20,32 @@
 <body>
     <div class="container">
         <h1>Getting started</h1>
-        <p>Like we mentioned on the previous page Bootstrap is a front end web framework used to display html. This means that everything can be done on the front end. Unlike a lot of other web frameworks, we don't need to modify anything on the server side. We can jump right in to programming with Bootstrap. </p>
+        <p>Like we mentioned on the previous page node.js is a server side application. Applications are written in javascript and so the first thing we need to get is the javascript parser.</p>
         
-        <h3>Step One: Importing the Bootstrap libraries</h2>
-        <p>There are two ways to go about using the Bootstrap libraries.</p>
+        <h3>Ubuntu</h3>
+        <p>To install node on ubuntu you need to issue the command <code>sudo apt-get instal nodjs</code></p>
         
-        <h4>1.) Host the Bootstrap Libraries</h4>
-        <p>The first way is to download the Bootstrap libraries from their website and host them on your webserver. Then you can import them in your header. This method however is very rarely used because the alternative is much quicker and more efficient.
-        </p>
+        <h3>Mac OS X</h3>
+        <p>To install node on Mac you need hombrew and then you can issue the command <code>brew install node</code></p>
         
-        <h4>2.) Use a CDN</h4>
-        <p>Most people use a CDN or a Content Delivery Network to serve the pages. This is far more efficient because the majority of people do this allowing for much faster load times because your browser will cache the libraries from other pages. In order to do this your header should look something like this.</p>
-        <br>
-        <pre><code>
-&lt!DOCTYPE html&gt   
-&lthtml lang="en" &gt
-&lthead&gt 
-    &lttitle&gtBootstrap Tutorial&lt/title&gt 
-    &lt!-- jQuery (necessary for Bootstrap's JavaScript plugins) --&gt
+        <p>Once the interpreter is installed you can invoke it using <code>node &ltfilename.js&gt</code></p>
         
-    &ltscript src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"&gt&lt/script&gt
+        <h3>Introduction Program</h3>
+        <p>The first thing were going to do is create a basic javascript program to get us started. Thets create a file called helloworld.js</p>
         
-    &lt!-- Latest compiled and minified CSS --&gt
-    &ltlink rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"&gt
-            
-    &lt!-- Optional theme --&gt
-    &ltlink rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"&gt
-            
-    &lt!-- Latest compiled and minified JavaScript --&gt
-    &ltscript src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"&gt&lt/script&gt
-&lt/head&gt
-        </code></pre>
+        <pre>
+            <code>
+/*Prints hello world to the screen*/
+console.log('Hello World');
+            </code>
+        </pre>
         
+        <p>Next were going to run this by typing <code>node helloworld.js</code> You should see the command line print "Hello World" and then exit.</p>
         
-        <br>
-        <p>This Header downloads the libraries for jQuery, and the different components of bootstrap. Once you have your header were free to start developing with bootstrap.</p>
-
+        <h3>Next Chapter</h3>
+        <p>That is the basic introduction into node. Next we are going to dive down a little more into how to set up a web server as well as interact with nodes event queue.</p>
+        
+    </div>
 </body>
 
 </html>
