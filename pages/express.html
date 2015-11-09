@@ -18,26 +18,66 @@
 </head>
 
 <body> 
-    <p> In order to maximize the potential of Node JS, you will want to consider the many modules that can be used with it. One of the most popular modules is Express JS. In fact, express is part of a very common JS based software stack, called MEAN(Mongo,Express,Angular,Node). 
-    </p>
+    <!-- INTRO --> 
     <img src="img/expressLogo.png" ></img>
-    <p> In order to install a module, you will need to use the "npm" command. This should be available with your basic Node install. To install express, use the following command: 
+    <p> 
+        In order to maximize the potential of Node JS, you will want to consider the many modules that can be used with it. One of the most popular modules is Express JS. In fact, express is part of a very common JS based software stack, called MEAN(Mongo,Express,Angular,Node). 
+    </p>
+    <h3>Express Setup</h3>
+    <p>
+        To install express, use the following command: 
     </p>
     <pre><code>
-        npm install express
+npm install express
     </pre></code>
-    You should now see that you have a "node_moduels" directory, containing, at the least, an express directory. With express we can very easily spin up a simple static file server. Consider the code below: 
+    You should now see that your "node_modules" directory now contains an express sub-directory. 
+
+
+    <!-- STATIC FILE SERVER --> 
+    <h3>Static File Server</h3>
+    With express we can very easily spin up a simple static file server. Consider the code below: 
     </p>
     <pre><code>
-        var express = require('express'),
-        app = express();
+var express = require('express'),
+app = express();
 
-        app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
-        app.listen(8080);
+app.listen(8080);
     </pre></code>
     <p>
-    Running this code creates a static server that serves up the public directory. Placing a simple index.html in this location will allow you to create a basic website, hosted via node JS.
+        Running this code creates a static server that serves up the public directory. Placing a simple index.html in this location will allow you to create a basic website, hosted via node JS. It can be accessed via localhost:8080
     </p> 
+
+
+    <!-- ROUTING --> 
+    <h3>Simple Routing</h3>
+    <p> 
+        Using express routing will allow our Node applicatin to respond to client requests depending on the endpoint that is requested. Each route may have multiple handler functions that fire when the route is hit. There are 4 key components to routing: The App, the Method, the Path, and the Handler. Consider the following code: 
+    </p>
+    <pre><code>
+var express = require('express'),
+app = express();
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});  
+
+app.get('/user', function (req, res) {
+  res.send('Got a GET request at /user');
+});
+
+app.put('/user', function (req, res) {
+  res.send('Got a PUT request at /user');
+});    
+
+app.listen(8080); 
+    </pre></code>
+    <p> 
+        Like before, we load express and create a new app using it. From here, we can define various endpoints for this app. Here, we have created a "get" for both the index page, and one for "/user". Furtheremore, we have a "put" method for the user endpoint. All 3 of these are handlers for their respective endpoint, and return various responses. In our case, these are simple text that indicate the routing succeeded. 
+    </p>
+    <img src="img/expressRouting1.png" ></img>
+    <p> The above screenshot shows how a get request can be triggered from the browser by accesing the port 8080 with the URL /user.</p> 
+
 </body>
 </html>
