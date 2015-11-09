@@ -46,7 +46,7 @@ app.use(express.static(__dirname + '/public'));
 app.listen(8080);
     </pre></code>
     <p>
-        Running this code creates a static server that serves up the public directory. Placing a simple index.html in this location will allow you to create a basic website, hosted via node JS. It can be accessed via localhost:8080
+        Running this code creates a static server that serves up the public directory. Public could be replaced with whatever directory name you would like to use to store your files. Placing a simple index.html in this location will allow you to create a basic website, hosted via node JS. It can be accessed via localhost:8080
     </p> 
 
 
@@ -79,5 +79,30 @@ app.listen(8080);
     <img src="img/expressRouting1.png" ></img>
     <p> The above screenshot shows how a get request can be triggered from the browser by accesing the port 8080 with the URL /user.</p> 
 
+    <h3>Advanced Routing</h3>
+    <p> Generally, sendig back simple text will not be sufficient for our views. In order to do slightly more advanced routing, we will need a module for html rendering. There are various other options for this(such as Jade), but we will use 'ejs'</p>
+    <pre><code>
+npm install ejs
+    </pre></code>
+    <p> Once the ejs module is installed, you will need to add the following code to your app file</p>
+     <pre><code>
+npm install ejs
+    </pre></code>   
+app.use(express.static(__dirname + '/views'));
+app.engine('.html', require('ejs').renderFile);
+app.set('view engine','ejs');
+    </pre></code>
+    <p>EJS assumes all views exist within a "views" directory, so it is a good idea to change your static dirname location to be 'views'. The next two lines set ejs to the be the engine used for html rendering. Now that we have a way to render html views, we can change our routing.</p>
+    </pre></code>   
+app.get('/user', function (req, res) {
+  res.render('users.html');
+});
+    </pre></code> 
+    <p> The above snippet of code allows for 'get' requests at 'users' URL. Using ejs, we render the "users.html" page from the views directory. </p>
+    <img src="img/expressRouting2.png" ></img>
+
+    <!-- Examples --> 
+    <h3>Code</h3>
+    <p>To view the specific code examples used in this portion of the turotial, navigate to the <a href="https://github.com/MattBubernak/NodeJSProject/tree/master/express_sample_code">express_sample_code directory</a> on our github repository. 
 </body>
 </html>
