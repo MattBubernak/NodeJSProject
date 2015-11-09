@@ -2,18 +2,18 @@
 <html lang="en" >
 
 <head>
-		<title>Node JS Tutorial</title>
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <title>Node JS Tutorial</title>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
 
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></link>
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></link>
 
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -46,7 +46,11 @@ app.use(express.static(__dirname + '/public'));
 app.listen(8080);
     </pre></code>
     <p>
+<<<<<<< HEAD
         Running this code creates a static server that serves up the public directory. Placing a simple index.html in this location will allow you to create a basic website, hosted via node JS. It can be accessed via localhost:8080
+=======
+        Running this code creates a static server that serves up the public directory. Public could be replaced with whatever directory name you would like to use to store your files. Placing a simple index.html in this location will allow you to create a basic website, hosted via node JS. It can be accessed via localhost:8080
+>>>>>>> gh-pages
     </p> 
 
 
@@ -76,8 +80,37 @@ app.listen(8080);
     <p> 
         Like before, we load express and create a new app using it. From here, we can define various endpoints for this app. Here, we have created a "get" for both the index page, and one for "/user". Furtheremore, we have a "put" method for the user endpoint. All 3 of these are handlers for their respective endpoint, and return various responses. In our case, these are simple text that indicate the routing succeeded. 
     </p>
+<<<<<<< HEAD
     <img src="img/expressRouting1.png" ></img>
     <p> The above screenshot shows how a get request can be triggered from the browser by accesing the port 8080 with the URL /user.</p> 
 
+=======
+    <img src="img/ExpressRouting1.PNG" ></img>
+    <p> The above screenshot shows how a get request can be triggered from the browser by accesing the port 8080 with the URL /user.</p> 
+
+    <h3>Advanced Routing</h3>
+    <p> Generally, sendig back simple text will not be sufficient for our views. In order to do slightly more advanced routing, we will need a module for html rendering. There are various other options for this(such as Jade), but we will use 'ejs'</p>
+    <pre><code>
+npm install ejs
+    </pre></code>
+    <p> Once the ejs module is installed, you will need to add the following code to your app file</p>
+     <pre><code>   
+app.use(express.static(__dirname + '/views'));
+app.engine('.html', require('ejs').renderFile);
+app.set('view engine','ejs');
+    </pre></code>
+    <p>EJS assumes all views exist within a "views" directory, so it is a good idea to change your static dirname location to be 'views'. The next two lines set ejs to the be the engine used for html rendering. Now that we have a way to render html views, we can change our routing.</p>
+    <pre><code>
+app.get('/user', function (req, res) {
+  res.render('users.html');
+});
+    </pre></code> 
+    <p> The above snippet of code allows for 'get' requests at 'users' URL. Using ejs, we render the "users.html" page from the views directory. </p>
+    <img src="img/ExpressRouting2.PNG" ></img>
+
+    <!-- Examples --> 
+    <h3>Code</h3>
+    <p>To view the specific code examples used in this portion of the turotial, navigate to the <a href="https://github.com/MattBubernak/NodeJSProject/tree/master/express_sample_code">express_sample_code directory</a> on our github repository. 
+>>>>>>> gh-pages
 </body>
 </html>
