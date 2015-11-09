@@ -51,20 +51,20 @@ console.log('Hello World');
             <p>Many systems like IOS, Android, many c++ applications, as well as high level web frameworks are all built around the idea of an event queue. If you have never implemented them they look along the lines of:</p>
         <pre>
             <code>
-            int main(int argc, char* argv[]){
-                //Set up the handlers
-                
-                std::vector&ltHandler&gt handlers;
-                BlockingQueue queue = new BlockingQueue();
-                
-                while(shouldRun){
-                    Event e = queue.pop(); //Blocks untill there is an event to process
-                    
-                    for(std::vector&ltHandler&gt::iterator it = handlers.begin(); it != handlers.end(); ++it){
-                        *it.handle(event); //Only call handle if the handler is subscribed to the certain event
-                    }
-                }
-            }
+int main(int argc, char* argv[]){
+    //Set up the handlers
+    
+    std::vector&ltHandler&gt handlers;
+    BlockingQueue queue = new BlockingQueue();
+    
+    while(shouldRun){
+        Event *e = queue.pop(); //Blocks untill there is an event to process
+        
+        for(std::vector&ltHandler&gt::iterator it = handlers.begin(); it != handlers.end(); ++it){
+            *it.handle(event); //Only call handle if the handler is subscribed to the certain event
+        }
+    }
+}
             </code>
         </pre>
         

@@ -20,7 +20,7 @@
 <body>
     <div class="container">
         <h1>Basics</h1>
-        <p>Now that we have talked a little bit about how Node.JS works underneath the covers, and how to write hello world. Let't continue this tutorial by actually creating a Node.JS webapp.</p>
+        <p>Now that we have talked a little bit about how Node.JS works underneath the covers, and how to write hello world. Let's continue this tutorial by actually creating a Node.JS webapp.</p>
         <h3>Basic Web Server</h3>
         <p>First lets look at a brief example:</p>
         <pre>
@@ -64,6 +64,103 @@ response.end('This is the content of the web page\n');
     
     <br>
     <p>To give this a try save the above code as main.js and execute it by running node main.js. Then open your browser and go to the url: localhost:1234 and watch our basic application.</p>
+    
+    <h3>Event Handlers and Emmiters</h3>
+    <p>As we mentioned a thousand times before Node.JS is an event based framework. This means that there are three major pieces. The Events, Event Handlers, and the Event Emitters. We have already talked about how the event loop sits there and waits for events to get put on its queue and then processes them. However, we haven't mentioned how the events get put on that queue in the first place. These things that generate events are called event emitters. Lets talk about the main event emitter, the OS. </p>
+    
+    <h4>The OS</h4>
+    <p>The easiest way to get your head around event emitters to first talk about the one that already exists, the OS. The os sends out signals and the application can handle them and put them on the queue. Going back to our c++ example from the previous slide, we might do something like.</p>
+    
+            <pre>
+            <code>
+            
+BlockingQueue *queue;
+
+void catchSigInt(int signum){
+    if( queue != Null){
+        Event *e = new QuitEvent();
+        queue.push(e);
+    }
+}
+int main(int argc, char* argv[]){
+                
+    std::vector&ltHandler&gt handlers;
+    *queue = new BlockingQueue();
+      
+    //Set up the handlers
+    
+    //Set up the emiters
+    signal(SIGINT, catchSigInt);
+    
+    while(shouldRun){
+        Event e = queue.pop(); //Blocks untill there is an event to process
+                    
+        for(std::vector&ltHandler&gt::iterator it = handlers.begin(); it != handlers.end(); ++it){
+            *it.handle(event); //Only call handle if the handler is subscribed to the certain event
+        }
+    }
+}
+
+            </code>
+        </pre>
+    
+        <p>Hopefully this seems pretty straight forward. When the os has something to report the signal handlers generate an event object and push it onto the queue. This is exactly what happens with our server example above. When the os wakes up our program with the socket read from the http request. An event gets generated and pushed onto the queue. Our server handler wakes up and then handles that event. This process is so efficient and easy that this has become the fundamental for all event based systems.</p>
+    
+    <h4>Node.JS event Emmiters</h4>
+    <p>You may be asking, Why do I care about the OS event emitter is Node.JS handles everything for me? Well the answer is easy. With Node.JS we are able to create our own event emitters. In order to do this we need to introduce a new module, the events module. The events module is used just like the http module. Once we require it we are free to use all of its features. The one were after is called the event emiter and we can create one just like.</p>
+    <pre> <code>
+//Require the module
+var events = require("events");
+
+//Create the event emiter
+var eventEmitter = new events.EventEmmitter();
+
+    </code></pre>
+    
+    <p>Thats all it takes to create an event emitter but emiting events becomes pretty useless if you don't have a handler to process them. What we need to do is to create an event handler with a callback and then bind it to the event type. To do this we can add to our code.</p>
+        <pre> <code>
+//Require the module
+var events = require("events");
+
+//Create the event emiter
+var eventEmitter = new events.EventEmmitter();
+
+//Create the handler
+var ourhandler = function handle(){
+    console.log('we need to handle the event');
+}
+
+//Now we need to bind the connection
+eventEmitter.on('event', ourhandler);
+
+    </code></pre>
+    
+    <p>The final step is to to them emmit the event. We can tie it all together now with emmitting the event. </p>
+    
+            <pre> <code>
+//Require the module
+var events = require("events");
+
+//Create the event emiter
+var eventEmitter = new events.EventEmitter();
+
+//Create the handler
+var ourhandler = function handle(){
+    console.log('we need to handle the event');
+}
+
+//Now we need to bind the connection
+eventEmitter.on('event', ourhandler);
+
+//fire the event
+eventEmitter.emit('event');
+
+    </code></pre>
+    
+    <p>That is all it takes to set up event emitters and event handlers in Node.JS. You can test this code by copying into a file called main.js and running node main.js and testing the output. The events module provides events like this in a synchronous way using the observer design pattern. </p>
+        
+    <h3>A-Sync Function Calls</h3>
+    <p>Even though the event emitters are an extremely powerful there still are synchronous events. No other event will get pulled off of the main event queue untill all the event handlers are processed. While this can be extremely useful there are times where we want truly asynchronous function calls. To do this we can use another module called fs.</p>
     </div>
 </body>
 </html>
