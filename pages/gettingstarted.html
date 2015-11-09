@@ -2,7 +2,7 @@
 <html lang="en" >
 
 <head>
-		<title>Bootstrap Tutorial</title>
+		<title>Node.JS Tutorial</title>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
@@ -20,18 +20,18 @@
 <body>
     <div class="container">
         <h1>Getting started</h1>
-        <p>Like we mentioned on the previous page node.js is a server side application. Applications are written in javascript and so the first thing we need to get is the javascript parser.</p>
+        <p>Like we mentioned on the previous page node.js is a server-side application. Applications are written in Javascript and so the first thing we need to get is the Javascript runtime environment also known as Node. This is conceptually the same as when you run the python environment to run your python code except were using node instead of python. </p>
         
         <h3>Ubuntu</h3>
-        <p>To install node on ubuntu you need to issue the command <code>sudo apt-get instal nodjs</code></p>
+        <p>To install node on ubuntu you need to issue the command <code>sudo apt-get install nodjs</code></p>
         
         <h3>Mac OS X</h3>
-        <p>To install node on Mac you need hombrew and then you can issue the command <code>brew install node</code></p>
+        <p>To install node on Mac you need homebrew and then you can issue the command <code>brew install node</code></p>
         
         <p>Once the interpreter is installed you can invoke it using <code>node &ltfilename.js&gt</code></p>
         
         <h3>Introduction Program</h3>
-        <p>The first thing were going to do is create a basic javascript program to get us started. Thets create a file called helloworld.js</p>
+        <p>The first thing were going to do is create a basic Javascript program to get us started. Lets create a file called helloworld.js</p>
         
         <pre>
             <code>
@@ -42,9 +42,55 @@ console.log('Hello World');
         
         <p>Next were going to run this by typing <code>node helloworld.js</code> You should see the command line print "Hello World" and then exit.</p>
         
-        <h3>Next Chapter</h3>
-        <p>That is the basic introduction into node. Next we are going to dive down a little more into how to set up a web server as well as interact with nodes event queue.</p>
         
+        <h3>Node.JS Event Queue</h3>
+        <p>Node has a built-into its runtime environment. What this means exactly is that node is not ment to sit there and execute code but instead is meant to register call backs and then wait for events. </p>
+        
+            
+            <h4>What are event queues?</h4>
+            <p>Many systems like IOS, Android, many c++ applications, as well as high level web frameworks are all built around the idea of an event queue. If you have never implemented them they look along the lines of:</p>
+        <pre>
+            <code>
+            int main(int argc, char* argv[]){
+                //Set up the handlers
+                
+                std::vector&ltHandler&gt handlers;
+                BlockingQueue queue = new BlockingQueue();
+                
+                while(shouldRun){
+                    Event e = queue.pop(); //Blocks untill there is an event to process
+                    
+                    for(std::vector&ltHandler&gt::iterator it = handlers.begin(); it != handlers.end(); ++it){
+                        *it.handle(event); //Only call handle if the handler is subscribed to the certain event
+                    }
+                }
+            }
+            </code>
+        </pre>
+        
+            <p>The nice thing about this architecture is that your programs are only executing when work needs to be done and that once the handler is set up all your programming revolves around processing events.</p>
+        
+            <h4>Node Js</h4>
+            <p>Node is nice enough that this event queue is set up for you inside of the environment. Normally, you use the initial Javascript to set up handlers and call backs to get called when an event is processed. The control flow for a node app then goes as follows. </p>
+            <ul class="list-group">
+                <li class="list-group-item">Run Main.js with Node</li>
+                <li class="list-group-item">Inside of Main.js setup handlers and call backs</li>
+                <li class="list-group-item">When Main.js exits control is given to the event loop</li>
+            </ul>
+            <br>
+            <h4>Previous Example</h4>
+            <p>So why isn't there an event loop happening with our previous example? </p>
+            <pre>
+            <code>
+/*Prints hello world to the screen*/
+console.log('Hello World');
+            </code>
+        </pre>
+        
+        <p>Well what is happening is that the node environment executes all of our statements and then does jump to the event loop. We didn't register for any events though so the event loop immediately exits allowing our program to complete. If at any time there are no handlers registered the event queue will immediately exit.</p>
+        
+        <h3>Next Chapter</h3>
+        <p>In the chapter we will talk about how to use Node to register handlers and create a full fledged event based, server-side, system.</p>
     </div>
 </body>
 
