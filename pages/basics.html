@@ -2,7 +2,7 @@
 <html lang="en" >
 
 <head>
-		<title>Bootstrap Tutorial</title>
+		<title>Node.JS Tutorial</title>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
@@ -20,310 +20,50 @@
 <body>
     <div class="container">
         <h1>Basics</h1>
-        <p>Now that we have talked about all the prerequisites for bootstrap we can start developing friendly and responsive web pages. Bootstrap provides many different css classes for styling pages but overall it boils down to putting normal html inside of a container. So first we are going to talk about containers. </p>
-        <h3>Containers</h3>
-        <p>The first important thing to know is that bootstrap requires a container for everything. If you don't have everything inside a container then it wont get the correct styling and wont look the way that you intended. With containers bootstrap gives two options.</p>
-        <h4>1.) .container class</h4>
-        <p>The .container class provides a responsive fixed width container</p>
-        <h4>2.) .container-fluid</h4>
-        <p>The .container-fluid class provides a container that spans the full width of the view.</p>
-        
-        <h4>Example</h4>
-        <p>The following example shows the code and the result for a basic webpage using Boostrap containers.</p>
-        
-        <h5>Code</h5>
-        <pre><code>
-&lt!DOCTYPE html&gt  
-&lthtml lang="en" &gt
-
-&lthead&gt
-    &lttitle&gtBootstrap Tutorial&lt/title&gt
-    &lt!-- jQuery (necessary for Bootstrap's JavaScript plugins) --&gt
-    &ltscript src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"&gt&lt/script&gt
-    
-    &lt!-- Latest compiled and minified CSS --&gt
-    &ltlink rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"&gt
-    
-    &lt!-- Optional theme --&gt
-    &ltlink rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"&gt
-        
-    &lt!-- Latest compiled and minified JavaScript --&gt
-    &ltscript src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"&gt&lt/script&gt
-&lt/head&gt
-&ltbody&gt
-    &ltdiv class="container-fluid"&gt
-        &lth1&gtHello World&lt/h1&gt
-        &ltp&gtHello everyone reading this&lt/p&gt
-    &lt/div&gt
-&lt/body&gt
-&lt/html&gt
-        </code></pre>
-
-        <br>
-        <p>This code provides the following result.</p>
-        
-        <div class="container-fluid">
-            <h2>Hello World</h2>
-            <p>Hello everyone reading this</p>
-        </div>
-       
-        <br>
-        <p>Containers are very important with bootstrap because that is the only really way to style groups of tags together. At its essence, html is designed to display information. Bootstrap takes this information groups it together and styles it in a way that makes sense to the users. Bootstrap has plenty of different options for containers and the rest of this section is going to focus on the different ways to group data and display it.</p>
-        
-        <br>
-        <h3>JumboTron</h3>
-        <p>A Jumbotron is another type of container that is used to bring extra attention to some content. They are an easy way to draw attention to part of the page while keeping everything concise. In order to use them you must use the .jumbotron class, like we do below.</p>
-        <pre><code>
-&ltdiv class="jumbotron"&gt
-    &ltp&gtThis is some attention grabbing text.&lt/p&gt
-&lt/div&gt
-        </code></pre>
-        <br>
-        <p>This produces the following effect.</p>
-        <div class="jumbotron">
-            <h2>Attention!!!!</h2>
-            <p>This is some attention grabbing text.</p>
-        </div>
-        <br>
-        <h3>Tables</h3>
-        <p>The next type of container to use is a table. Tables are not unique to bootstrap, they are used in html all the time. Bootstrap adds several css classes though that makes bootstrap tables look way better than the html counterpart. To create a basic table in Boostrap you use the &lttable&gt tag with the class .table. For example:</p>
-        <div class="container">
-            <h2>Normal Table</h2>         
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Nic</td>
-                        <td>Broeking</td>
-                        <td>nicsEmail@broeking.com</td>
-                    </tr>
-                    <tr>
-                        <td>Josh</td>
-                        <td>Rahm</td>
-                        <td>josh@rahm.com</td>
-                    </tr>
-                    <tr>
-                        <td>Matt</td>
-                        <td>Burbernak</td>
-                        <td>Matt@Bubernak.com</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <br>
-        <p>The Code:</p>
-        <pre><code>
-&ltdiv class="container"&gt
-    &lth2&gtNormal Table&lt/h2&gt         
-    &lttable class="table"&gt
-        &ltthead&gt
-            &lttr&gt
-                &ltth&gtFirstname&lt/th&gt
-                &ltth&gtLastname&lt/th&gt
-                &ltth&gtEmail&lt/th&gt
-            &lt/tr&gt
-        &lt/thead&gt
-        &lttbody&gt
-            &lttr&gt
-                &lttd&gtNic&lt/td&gt
-                &lttd&gtBroeking&lt/td&gt
-                &lttd&gtnic@broeking.com&lt/td&gt
-            &lt/tr&gt
-            &lttr&gt
-                &lttd&gtJosh&lt/td&gt
-                &lttd&gtRahm&lt/td&gt
-                &lttd&gtjosh@rahm.com&lt/td&gt
-            &lt/tr&gt
-            &lttr&gt
-                &lttd&gtMatt&lt/td&gt
-                &lttd&gtBurbernak&lt/td&gt
-                &lttd&gtMatt@Bubernak.com&lt/td&gt
-            &lt/tr&gt
-        &lt/tbody&gt
-    &lt/table&gt
-&lt/div&gt
-        </code></pre>
-        
-        <br>
-        <p>There is more we can do with tables. Bootstrap is verbose enough to provide several other types of tables. Their code and output is shown below.</p>
-        <div class="container">
-            <h2>Striped Table</h2>         
-            <table class="table-striped">
-                <p>table-stripped alternates every row with different colors</p>
-                <thead>
-                    <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Nic</td>
-                        <td>Broeking</td>
-                        <td>nicsEmail@broeking.com</td>
-                    </tr>
-                    <tr>
-                        <td>Josh</td>
-                        <td>Rahm</td>
-                        <td>josh@rahm.com</td>
-                    </tr>
-                    <tr>
-                        <td>Matt</td>
-                        <td>Burbernak</td>
-                        <td>Matt@Bubernak.com</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <br>
-        <p>The Code:</p>
-        <pre><code>
-&ltdiv class="container"&gt
-    &lth2&gtStriped Table&lt/h2&gt         
-    &lttable class="table-striped"&gt
-        &ltthead&gt
-            &lttr&gt
-                &ltth&gtFirstname&lt/th&gt
-                &ltth&gtLastname&lt/th&gt
-                &ltth&gtEmail&lt/th&gt
-            &lt/tr&gt
-        &lt/thead&gt
-        &lttbody&gt
-            &lttr&gt
-                &lttd&gtNic&lt/td&gt
-                &lttd&gtBroeking&lt/td&gt
-                &lttd&gtnic@broeking.com&lt/td&gt
-            &lt/tr&gt
-            &lttr&gt
-                &lttd&gtJosh&lt/td&gt
-                &lttd&gtRahm&lt/td&gt
-                &lttd&gtjosh@rahm.com&lt/td&gt
-            &lt/tr&gt
-            &lttr&gt
-                &lttd&gtMatt&lt/td&gt
-                &lttd&gtBurbernak&lt/td&gt
-                &lttd&gtMatt@Bubernak.com&lt/td&gt
-            &lt/tr&gt
-        &lt/tbody&gt
-    &lt/table&gt
-&lt/div&gt
-        </code></pre>
-    
-        <br>
-        <div class="container">
-        <h2>Bordered Table</h2>         
-            <table class="table-bordered">
-                <p>table-bordered provides a border for the table</p>
-                <thead>
-                    <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Nic</td>
-                        <td>Broeking</td>
-                        <td>nicsEmail@broeking.com</td>
-                    </tr>
-                    <tr>
-                        <td>Josh</td>
-                        <td>Rahm</td>
-                        <td>josh@rahm.com</td>
-                    </tr>
-                    <tr>
-                        <td>Matt</td>
-                        <td>Burbernak</td>
-                        <td>Matt@Bubernak.com</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <br>
-        <p>The Code:</p>
-        <pre><code>
-&ltdiv class="container"&gt
-    &lth2&gtBoardered Table&lt/h2&gt         
-    &lttable class="table-boardered"&gt
-        &ltthead&gt
-            &lttr&gt
-                &ltth&gtFirstname&lt/th&gt
-                &ltth&gtLastname&lt/th&gt
-                &ltth&gtEmail&lt/th&gt
-            &lt/tr&gt
-        &lt/thead&gt
-        &lttbody&gt
-            &lttr&gt
-                &lttd&gtNic&lt/td&gt
-                &lttd&gtBroeking&lt/td&gt
-                &lttd&gtnic@broeking.com&lt/td&gt
-            &lt/tr&gt
-            &lttr&gt
-                &lttd&gtJosh&lt/td&gt
-                &lttd&gtRahm&lt/td&gt
-                &lttd&gtjosh@rahm.com&lt/td&gt
-            &lt/tr&gt
-            &lttr&gt
-                &lttd&gtMatt&lt/td&gt
-                &lttd&gtBurbernak&lt/td&gt
-                &lttd&gtMatt@Bubernak.com&lt/td&gt
-            &lt/tr&gt
-        &lt/tbody&gt
-    &lt/table&gt
-&lt/div&gt
-        </code></pre>
-    
-        <p>There are plenty of more types of tables that you can use. Bootstrap has popup tables, responsive tables, and even condensed tables. For the purposes of our tutorial we arn't going to show you all of these but you can get a general idea.</p>
-        <br>
-    
-        <h3>Wells</h3>
-        <p>The last container that we are going to show you are wells. Wells are similar to a jumbotron except that they arn't as exaggerated. They are a nice way to group text together into a text box or similar type of container. To create a well all you need is a container that uses the class .well For example</p>
-        <br>
+        <p>Now that we have talked a little bit about how Node.JS works underneath the covers, and how to write hello world. Let't continue this tutorial by actually creating a Node.JS webapp.</p>
+        <h3>Basic Web Server</h3>
+        <p>First lets look at a brief example:</p>
         <pre>
             <code>
-&ltdiv class="well"&gtThis is a basic well.&lt/div&gt    
+var http = require("http");
+
+var server = http.createServer(function (request, response) {
+
+   // Send the HTTP header 
+   //Sending a response code of OK with plain text Content Type
+   response.writeHead(200, {'Content-Type': 'text/plain'});
+   
+   response.end('This is the content of the web page\n');
+});
+server.listen();
+
+// Console will print the port
+console.log('Server is listening on port 1234');
             </code>
         </pre>
-        <br>
-        <p>This looks like:</p>
-        <br>
-        <div class="well">This is a basic well.</div>
-        <br>
-        <p>Of course just like the tables. Bootstrap provides several different looks for wells. The options are Small Well, Normal Well, and Large Well</p>
-        <br>
-        <p>The code and output for each one looks like.</p>
-        <br>
-        <pre>
-            <code>
-&ltdiv class="well-sm"&gtThis is a small well.&lt/div&gt    
-            </code>
-        </pre>
-        <br>
-        <div class="well well-sm">This is a small well.</div>
-        <br>
-            <pre>
-            <code>
-&ltdiv class="well-sm"&gtThis is a large well.&lt/div&gt    
-            </code>
-        </pre>
-        <br>
-        <div class="well well-lg">This is a large well.</div>
-        <br>
         
-        <h3>Other Containers</h3>
-        <p>Obviously, we are only able to scratch the surface with containers but this should give you a feel for what bootstrap is capable of doing. The next two chapters we will dive further in to bootstraps capabilities and features. </p>
+        <p>Lets break this code down line by line. The first line </p><code>var http = requre("http");</code> <p>is essentially an import statement. It is including that the program uses the http module. We will talk about this more in the next section but for now just think of it as a collection of related code. Once we imported the http module we can set up an event listener for http requests.</p>
+        
+        <pre> <code>
+var server = http.createServer(function (request, response) {
+
+// Send the HTTP header 
+//Sending a response code of OK with plain text Content Type
+response.writeHead(200, {'Content-Type': 'text/plain'});
+   
+response.end('This is the content of the web page\n');
+});
+        </code></pre>
+        <p>This code is creating a variable server that is essentially an event handler that will call the anonymous callback function anytime there is a http request. The call back function writes the http header to be a return status of OK and says the type is plain text. The last thing is it sends the html body. Normally, this is where you load if from a file or generate it on the fly but whatever you send here the clients browser will parse as html.</p>
         
         <br>
+        <p>The next line </p> <code>server.listen()</code> tells the Node.JS event queue that you are subscribing the servers handler. Any http request will now be processed. If you leave this line out the event handler will never get registered, and as we explained before the program will exit because the event handler has no handlers to process events.</p>
+    
         <br>
+        <p>Once the handler is registered then the console prints to the command line the port it is listening on: </p><code>console.log('Server is listening on port 1234');</code> <p> The main.js returns back to the environment which then proceeds to execute the event queue. Untill the program is killed our Node.JS app will continue to process web requests always answering the content.</p>
+    
+    <br>
+    <p>To give this a try save the above code as main.js and execute it by running node main.js. Then open your browser and go to the url: localhost:1234 and watch our basic application.</p>
     </div>
 </body>
 </html>
