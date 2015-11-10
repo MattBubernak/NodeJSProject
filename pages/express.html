@@ -46,11 +46,7 @@ app.use(express.static(__dirname + '/public'));
 app.listen(8080);
     </pre></code>
     <p>
-<<<<<<< HEAD
-        Running this code creates a static server that serves up the public directory. Placing a simple index.html in this location will allow you to create a basic website, hosted via node JS. It can be accessed via localhost:8080
-=======
         Running this code creates a static server that serves up the public directory. Public could be replaced with whatever directory name you would like to use to store your files. Placing a simple index.html in this location will allow you to create a basic website, hosted via node JS. It can be accessed via localhost:8080
->>>>>>> gh-pages
     </p> 
 
 
@@ -80,15 +76,9 @@ app.listen(8080);
     <p> 
         Like before, we load express and create a new app using it. From here, we can define various endpoints for this app. Here, we have created a "get" for both the index page, and one for "/user". Furtheremore, we have a "put" method for the user endpoint. All 3 of these are handlers for their respective endpoint, and return various responses. In our case, these are simple text that indicate the routing succeeded. 
     </p>
-<<<<<<< HEAD
-    <img src="img/expressRouting1.png" ></img>
-    <p> The above screenshot shows how a get request can be triggered from the browser by accesing the port 8080 with the URL /user.</p> 
-
-=======
     <img src="img/ExpressRouting1.PNG" ></img>
     <p> The above screenshot shows how a get request can be triggered from the browser by accesing the port 8080 with the URL /user.</p> 
 
-    <h3>Advanced Routing</h3>
     <p> Generally, sendig back simple text will not be sufficient for our views. In order to do slightly more advanced routing, we will need a module for html rendering. There are various other options for this(such as Jade), but we will use 'ejs'</p>
     <pre><code>
 npm install ejs
@@ -108,9 +98,71 @@ app.get('/user', function (req, res) {
     <p> The above snippet of code allows for 'get' requests at 'users' URL. Using ejs, we render the "users.html" page from the views directory. </p>
     <img src="img/ExpressRouting2.PNG" ></img>
 
+    <p> A convienent feature of EJS is that you can send data to your views with rendering them. In the simple example below, we added a second parameter to the "render" method, passing it a json object that can be accessed in our HTML view. 
+    <pre><code>
+app.get('/user', function (req, res) {
+  res.render('users2.html',{name:"bob"});
+});
+    </pre></code>
+    <p> The syntax for accessing the fields of the object we send is quite simple, using the <%= %> syntax. In fact, within this tag we can add more JavaScript, but as that is more specific to EJS, we will not dive any further into this aspect. 
+    <pre><code>
+&lhtml&gt
+&lth1>Users page&lt/h1&gt
+Welcome to the users view. User is: &lt%= name %&gt
+&lt/html&gt
+    </pre></code>
+
+    <h3>Advanced Routing</h3>
+    <p> Now that we have looked at the basics for creating a routes that render some dynamic HTML, we can explore some slightly more advanced routing capabilities express has. Express 4.0 introduced a new a new concept, the "express router". It is an express application that only encapsulates routing. It allows applications to be more modular, because we can have multiple different express routers applied to one single application. 
+    <pre><code>
+var router = express.Router();
+
+router.get('/', function(req, res) {
+res.send('Hello World');  
+});
+
+router.get('/users', function(req, res) {
+res.send('Hello users!'); 
+});
+
+app.use('/', router);
+    </pre></code>
+    <p> The above code creates a new router, so now all our routing is contained within that object. The final line tells the app to use this router with a default path of "/". This could be changed to something like "app.use('/test,router)" and our URL's would change from localhost:8080/users to localhost:8080/test/users</p>
+    <p>Another feature you will want to use for routing is routing middleware. Essentially, this middleware allows you to do some sort of processing before a request is processed.</p>
+
+<pre><code>
+router.use(function(req, res, next) {
+    console.log("method:" + req.method + " url:" + req.url);
+    next(); 
+});
+</pre></code>
+    <p> By addig the following snippet of code to our node js file, we implement routing middleware. Now, this method gets called for every router request. Some processing is done, and then the "next()" actually passes the request to the appropriate route handler. In our case, the processing we did was simply print out the method and req before continuing to the correct route. Note that order is important. In order for your middleware to be triggered first, it must be first in your code. 
+    <img src="img/ExpressRouting3.PNG" ></img>
+    <p> The final wrinkle of routing that we will examine is how to pass parameters to routes. The code snippet below creates a route that accepts 1 parameter, called "thing". Thing can then be easily accessed, and we actually just print it back to the user in this example. 
+    </p>
+
+    <pre><code>
+router.get('/input/:thing', function(req, res) {
+res.send('input: ' + req.params.thing);
+});
+    </pre></code>
+    <p> We can put this all together with the final example below. We use our middleware to catch the "thing" param, and update it before the get request is recieved. Imagine that some strings are passed in, but we want to sanitize them before passing them to our get method. 
+    </p>
+<pre><code>
+router.param('thing', function(req, res, next, thing) {
+    console.log('doing thing validations on ' + thing);
+    req.thing = thing + "bla";
+    next(); 
+});
+
+router.get('/input/:thing', function(req, res) {
+    res.send('input: ' + req.thing);
+});
+</pre></code>
+<p> Notice that we also had to update our router, and change "req.param.thing" to "req.thing". This allows us to utilize the modified thing created in our routing middleware. </p>
+
     <!-- Examples --> 
     <h3>Code</h3>
     <p>To view the specific code examples used in this portion of the turotial, navigate to the <a href="https://github.com/MattBubernak/NodeJSProject/tree/master/express_sample_code">express_sample_code directory</a> on our github repository. 
->>>>>>> gh-pages
 </body>
 </html>
