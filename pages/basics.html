@@ -20,9 +20,9 @@
 <body>
     <div class="container">
         <h1>Basics</h1>
-        <p>Now that we have talked a little bit about how Node.JS works underneath the covers, and how to write hello world. Let's continue this tutorial by actually creating a Node.JS webapp.</p>
+        <p>Now that we have talked a little bit about how Node.JS works underneath the covers, and how to write hello world. Let's continue this tutorial by actually creating a Node.JS web app.</p>
         <h3>Basic Web Server</h3>
-        <p>First lets look at a brief example:</p>
+        <p>First let's look at a brief example:</p>
         <pre>
             <code>
 var http = require("http");
@@ -60,12 +60,12 @@ response.end('This is the content of the web page\n');
         <p>The next line </p> <code>server.listen()</code> tells the Node.JS event queue that you are subscribing the servers handler. Any http request will now be processed. If you leave this line out the event handler will never get registered, and as we explained before the program will exit because the event handler has no handlers to process events.</p>
     
         <br>
-        <p>Once the handler is registered then the console prints to the command line the port it is listening on: </p><code>console.log('Server is listening on port 1234');</code> <p> The main.js returns back to the environment which then proceeds to execute the event queue. Untill the program is killed our Node.JS app will continue to process web requests always answering the content.</p>
+        <p>Once the handler is registered then the console prints to the command line the port it is listening on: </p><code>console.log('Server is listening on port 1234');</code> <p> The main.js returns back to the environment which then proceeds to execute the event queue. Until the program is killed our Node.JS app will continue to process web requests always answering the content.</p>
     
     <br>
     <p>To give this a try save the above code as main.js and execute it by running node main.js. Then open your browser and go to the url: localhost:1234 and watch our basic application.</p>
     
-    <h3>Event Handlers and Emmiters</h3>
+    <h3>Event Handlers and Emitters</h3>
     <p>As we mentioned a thousand times before Node.JS is an event based framework. This means that there are three major pieces. The Events, Event Handlers, and the Event Emitters. We have already talked about how the event loop sits there and waits for events to get put on its queue and then processes them. However, we haven't mentioned how the events get put on that queue in the first place. These things that generate events are called event emitters. Lets talk about the main event emitter, the OS. </p>
     
     <h4>The OS</h4>
@@ -93,7 +93,7 @@ int main(int argc, char* argv[]){
     signal(SIGINT, catchSigInt);
     
     while(shouldRun){
-        Event e = queue.pop(); //Blocks untill there is an event to process
+        Event e = queue.pop(); //Blocks until there is an event to process
                     
         for(std::vector&ltHandler&gt::iterator it = handlers.begin(); it != handlers.end(); ++it){
             *it.handle(event); //Only call handle if the handler is subscribed to the certain event
@@ -106,8 +106,8 @@ int main(int argc, char* argv[]){
     
         <p>Hopefully this seems pretty straight forward. When the os has something to report the signal handlers generate an event object and push it onto the queue. This is exactly what happens with our server example above. When the os wakes up our program with the socket read from the http request. An event gets generated and pushed onto the queue. Our server handler wakes up and then handles that event. This process is so efficient and easy that this has become the fundamental for all event based systems.</p>
     
-    <h4>Node.JS event Emmiters</h4>
-    <p>You may be asking, Why do I care about the OS event emitter is Node.JS handles everything for me? Well the answer is easy. With Node.JS we are able to create our own event emitters. In order to do this we need to introduce a new module, the events module. The events module is used just like the http module. Once we require it we are free to use all of its features. The one were after is called the event emiter and we can create one just like.</p>
+    <h4>Node.JS event Emitters</h4>
+    <p>You may be asking, Why do I care about the OS event emitter is Node.JS handles everything for me? Well the answer is easy. With Node.JS we are able to create our own event emitters. In order to do this we need to introduce a new module, the events module. The events module is used just like the http module. Once we require it we are free to use all of its features. The one were after is called the event emitter and we can create one just like.</p>
     <pre> <code>
 //Require the module
 var events = require("events");
@@ -117,7 +117,7 @@ var eventEmitter = new events.EventEmmitter();
 
     </code></pre>
     
-    <p>Thats all it takes to create an event emitter but emiting events becomes pretty useless if you don't have a handler to process them. What we need to do is to create an event handler with a callback and then bind it to the event type. To do this we can add to our code.</p>
+    <p>That's all it takes to create an event emitter but emitting events becomes pretty useless if you don't have a handler to process them. What we need to do is to create an event handler with a callback and then bind it to the event type. To do this we can add to our code.</p>
         <pre> <code>
 //Require the module
 var events = require("events");
@@ -160,7 +160,7 @@ eventEmitter.emit('event');
     <p>That is all it takes to set up event emitters and event handlers in Node.JS. You can test this code by copying into a file called main.js and running node main.js and testing the output. The events module provides events like this in a synchronous way using the observer design pattern. </p>
         
     <h3>A-Sync Function Calls</h3>
-    <p>Even though the event emitters are an extremely powerful there still are synchronous events. No other event will get pulled off of the main event queue untill all the event handlers are processed. While this can be extremely useful there are times where we want truly asynchronous function calls. To do this we can use another module called fs.</p>
+    <p>Even though the event emitters are an extremely powerful there still are synchronous events. No other event will get pulled off of the main event queue until all the event handlers are processed. While this can be extremely useful there are times where we want truly asynchronous function calls. To do this we can use another module called fs.</p>
     </div>
 </body>
 </html>
