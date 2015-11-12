@@ -17,31 +17,43 @@
 
 </head>
 
-<body> 
-    <div class="container"> 
+<body>
+    <div class="container">
         <h1>Introduction</h1>
 
-        <p>Node.JS is a powerful cross-platform runtime environment that is designed for developing server-side web applications. In this tutorial we are going to provide a basic introduction into how Node.JS works and how you can start developing your own applications today.</p> <br>
+        <p>Node.JS is a powerful cross-platform runtime environment that is
+        designed for developing server-side web applications. In this tutorial
+        we are going to provide a basic introduction into how Node.JS works and
+        how you can start developing your own applications today.</p> <br>
 
         <h3>What is Node.JS?</h3>
 
-        <p>Node.JS, like we mentioned above, is a cross-platform runtime environment. It is designed for developing server-side web applications. Node.JS applications are written in Javascript and can be run on any platform. The Javascript is executed by the V8, a Javascript engine developed by Google. This is the same engine that Chrome uses inside of its browser.
+        <p>Node.JS, like we mentioned above, is a cross-platform runtime
+        environment. It is designed for developing server-side web
+        applications. Node.JS applications are written in Javascript and can be
+        run on any platform. The Javascript is executed by the V8, a Javascript
+        engine developed by Google. This is the same engine that Chrome uses
+        inside of its browser. This means that Node is really fast, especially
+        for such a dynamic, high-level language like JavaScript. The V8 engine
+        actually converts the JavaScript <i>Directly to machine code</i> at runtime
+        to provide very good performance especially when looking at other frameworks
+        like Rails and Django.
         </p>
-    
+
         <h3>Why use Node.JS</h3>
-        <p>Node has a very powerful attribute that sets it apart from other web frameworks that gives it a huge advantage. Instead of just creating the front end html and relying on stateless scripts on the server, you actually create your own web server that allows you to rely on a persistent state. So what does this mean? Well most web developers are probably used to using apache. You configure apache to listen on port 80 and then when your clients go to your web page. Apache finds the file they want and then serves them the file. Each connection is a separate connection that doesn't affect the other users. If you need to save state or change any information you need to interact with a database. NodeJS acts as an apache replacement. Except because you are writing the single application you can keep track of state within the application and then let each connection change a shared state. This is an extremely powerful tool and is what sets node.js apart from other web frameworks.
+        <p>Node has a very powerful attribute that sets it apart from other web frameworks that gives it a huge advantage. Instead of just creating the front end html and relying on stateless scripts on the server, you actually create your own web server that allows you to rely on a persistent state. So what does this mean? Well most web developers are probably used to using Apache. You configure Apache to listen on port 80 and then when your clients go to your web page. Apache finds the file they want and then serves them the file. Each connection is a separate connection that doesn't affect the other users. If you need to save state or change any information you need to interact with a database. NodeJS acts as an Apache replacement. Except because you are writing the single application you can keep track of state within the application and then let each connection change a shared state. This is an extremely powerful tool and is what sets node.js apart from other web frameworks.
         </p>
 
         <h3>What should I know before looking at this page?</h3>
 
         <p>Node.JS is a server-side application. You should have familiar knowledge with how server-side applications work as well as basic network knowledge. Node.JS is also an event bases system. It helps to conceptually to know how these work and how they are implemented. At a minimum you should be comfortable knowing how to work with event systems.<p>
-        
+
         <h3>When Should I Use Node?</h3>
         <p>Node.JS is a single threaded event based system, more on this later, but this means that Node.JS is a good tool if your application is a IO Bound application, Data Intensive Realtime Application, or API based application. Essentially, If your application spends most of its time processing events then Node.JS is a perfect Tool for you.
-            
+
         <h3>When Should I use a different tool?</h3>
         <p>If your application is CPU bound, or spends a lot of time processing data then Node.JS isn't for you. There are plenty of other applications that you should use for a situation like this. Fortunately, there are plenty of applications that are not like this and Node.JS can be used to solve those problems.</p>
-        
+
 
     </div>
 
