@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+        <title>Node JS Tutorial</title>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></link>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
+
+<body> 
+    <!-- INTRO --> 
+    <h1>ASync</h1>
+    <p>Node JS has so many important modules, and it's impossible for us to cover them all here. However, for the final part of the tutorial, we will look at one last integral module of Node JS: ASync. Many function calls in JavaScript can be made asynchronously, which can create challenges for developers. There have been various forms of workarounds, including the CallBack pattern, and Promises, but here we will exam the ASync module solution.</p>
+    <p> Like many modules, you will start off by installing async using: 
+    <pre><code>npm install async</pre></code>
+    <p> Typically, when node executes an asynchronous operation, it will simply continue executing code afterwards. Consider a situation where you query a database, and the next thing you want to do is calculate some statistics based on the data you recieved, and then finally show that data. 
+    <pre><code>
+        var data;
+        asyncGetFromDB(); 
+        calculateStatsFromData();
+        displayStats();
+    </pre></code>
+    <p> There are problems if any of these methods fire before the previous one has completed. The Async module can handle this situation using an <code>Async.series()</code>.
+    <pre><code>
+var data; 
+async.series([
+    function(callback) {
+        asyncGetFromDB(callback);
+    },
+    function(callback) {
+        calculateStatsFromData(callback);
+    },
+    function(callback) {
+        displayStats(callback);
+    }
+])
+
+// example function with callback
+function displayStats(callback){
+    // logic
+    callback();
+}
+    </pre></code>
+    <p> The <code>Async.series()</code> is allowing the execution of a series of methods in a synchronous manor. However, these methods used in the series are required to accept a "callback" function as a parameter. Within the method, once the callback is manually called, async will continue to the next function. Note that the async library does not completely reduce the need for callbacks, but provides an elegent solution for using them. Furthermore, the code above can be re-written in a simpler way. </p>
+    <pre><code>
+var data; 
+async.series([
+        asyncGetFromDB;
+        calculateStatsFromData;
+        displayStats;
+])
+    </pre></code>
+    <p> By using the above syntax, we still assume callback is the first parameter, and all the same behavior, but we can avoid the redundant syntax. The Async Series is a great solution if you need to ensure that all of these events happen in a serially. If the events in our series could be executed in parallel, we could modify our syntax slightly to use <code>async.paralell()</code> instead. This would launch all methods simultaneously, but we would still be blocked on the entire cluster of methods completing. </p>
+    <p> Another common use case for the async module is handling of multiple items in a series, asynchronously. Consider the following situation: </p>
+    <pre><code>
+        requests.forEach(function(user) {
+          request.AsyncProcess();
+        });
+    </pre></code>
+    <p> Imagine that these requests are processed asyncrnously and require some sort of network/server communication, and order in which they are processed is important. Currently, there is nothing to enforce this. <code>Async.each()</code> provides a solution for this. Consider the code below:    
+    <pre><code>
+        async.each(requests, function(user, callback) {
+          request.AsyncProcess(callback);
+        });
+    </pre></code>
+    <p> Once more we are required to add the callback, but nowe we assure that each AsyncProcess call will be handled in order.</p>
+    <p> Async is a great module that can be used to avoid the hardships typically caused by callbacks and the promises. Here we covered some of the very fundamental use cases for Async. To learn more about it's features view the <a href="https://github.com/caolan/async">async github repository</a> </p>
+
+</body>
+</html>
