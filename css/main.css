@@ -34,12 +34,30 @@ body {
     width: 90%;
 }
 
+.example .name h1 {
+    font-size: 16pt;
+    font-color: #eee;
+    color: #eee;
+    font-weight: bold;
+    margin: 0;
+}
+
+.example .pre {
+    padding: 10px;
+}
+
+.example .name {
+    margin: 0px;
+    padding: 5px;
+    padding-left: 10px;
+    background-color: #333;
+    border-radius: 10px 10px 0 0;
+}
+
 .example {
     background-color: #eee;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 2px solid white;
-    text-align: center;
-    padding: 20px;
 
     transition: background-color 0.2s;
 }
