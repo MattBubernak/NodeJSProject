@@ -23,7 +23,7 @@
     <p>Node JS has so many important modules, and it's impossible for us to cover them all here. However, for the final part of the tutorial, we will look at one last integral module of Node JS: ASync. Many function calls in JavaScript can be made asynchronously, which can create challenges for developers. There have been various forms of workarounds, including the CallBack pattern, and Promises, but here we will exam the ASync module solution.</p>
     <p> Like many modules, you will start off by installing async using: 
     <pre><code>npm install async</pre></code>
-    <p> Typically, when node executes an asynchronous operation, it will simply continue executing code afterwards. Consider a situation where you query a database, and the next thing you want to do is calculate some statistics based on the data you recieved, and then finally show that data. 
+    <p> Typically, when node executes an asynchronous operation, it will simply continue executing code afterwards. Consider a situation where you query a database, and the next thing you want to do is calculate some statistics based on the data you recieied, and then finally show that data. 
     <pre><code>
         var data;
         asyncGetFromDB(); 
@@ -51,7 +51,7 @@ function displayStats(callback){
     callback();
 }
     </pre></code>
-    <p> The <code>Async.series()</code> is allowing the execution of a series of methods in a synchronous manor. However, these methods used in the series are required to accept a "callback" function as a parameter. Within the method, once the callback is manually called, async will continue to the next function. Note that the async library does not completely reduce the need for callbacks, but provides an elegent solution for using them. Furthermore, the code above can be re-written in a simpler way. </p>
+    <p> The <code>Async.series()</code> is allowing the execution of a series of methods in a synchronous manor. However, these methods used in the series are required to accept a "callback" function as a parameter. Within the method, once the callback is manually called, async will continue to the next function. Note that the async library does not completely reduce the need for callbacks, but provides an elegant solution for using them. Furthermore, the code above can be re-written in a simpler way. </p>
     <pre><code>
 var data; 
 async.series([
@@ -67,13 +67,13 @@ async.series([
           request.AsyncProcess();
         });
     </pre></code>
-    <p> Imagine that these requests are processed asyncrnously and require some sort of network/server communication, and order in which they are processed is important. Currently, there is nothing to enforce this. <code>Async.each()</code> provides a solution for this. Consider the code below:    
+    <p> Imagine that these requests are processed asynchronously and require some sort of network/server communication, and order in which they are processed is important. Currently, there is nothing to enforce this. <code>Async.each()</code> provides a solution for this. Consider the code below:    
     <pre><code>
         async.each(requests, function(user, callback) {
           request.AsyncProcess(callback);
         });
     </pre></code>
-    <p> Once more we are required to add the callback, but nowe we assure that each AsyncProcess call will be handled in order.</p>
+    <p> Once more we are required to add the callback, but now we assure that each AsyncProcess call will be handled in order.</p>
     <p> Async is a great module that can be used to avoid the hardships typically caused by callbacks and the promises. Here we covered some of the very fundamental use cases for Async. To learn more about it's features view the <a href="https://github.com/caolan/async">async github repository</a> </p>
 
 </body>
