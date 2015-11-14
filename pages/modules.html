@@ -21,28 +21,37 @@
     <div class="container">
         <h1>Modules</h1>
 
-        <p>We have given you a brief introduction into a few modules over the
-        past couple slides however now we are going to talk about exactly what
-        they are and how they are used. </p>
+        <h2>What are modules in Node</h2>
+        Modules in Node are exactly the same as modules in other languages. It allows
+        you to import functionality from other parts of the program. It allows the
+        programmer to more effectively break up program code into multiple different
+        file, each exporting similar functionality.</p>
 
-        <p>Modules in Node.js work a little differently than they do in other programming
-        languages. This is an artifact of the way modularity in JavaScript works. In client-side JavaScript,
-        there is no notion of modules built into the language. Rather, one must work together a
-        sort of hack to get them by dynamically modifying the HTML to include the required JavaScript
-        files</p>
+        <p>We have already been writing modules and you may not have even known it!
+        The Hello World program we showed in the introduction was a module. In fact,
+        all code exists in a module. However, that is only a small part of the utility
+        of a module.</p>
 
-        <p>
-        To maintain cross-compatibility with server-side and client-side JavaScript, Node created a
-        system to abstract away this hack into an elegant function called "require".
+        <p>In the past couple of topics we have introduced you to a few modules,
+        most notably the express module. While NodeJS modules are functionally equivalent
+        to their analogs in other languages (such as packages in Java and #include's in
+        C and modules in Python), they have a significant implementation difference that
+        our team has found to be quite clever and beautiful.
         </p>
 
-        <h1>Node Package Manager (NPM)</h1>
+        <p>JavaScript alone never was intended to be broken up into modules. Originally
+        designed to be a light languages to script limited parts of a website, the designers
+        felt that building in imports like those in other languages would be unnecessary
+        and cumbersome.</p>
 
-        <p>
-        The node package manager (npm) is the program used to collect and install modules.
-        in linux it installs modules in a folder called 'node_modules' in the current
-        directory.
+        <p>As JavaScript rose in popularity, people created different ways to bolt on
+        module systems to the scripting language. Over time some sophisticated libraies
+        began to form like JQuery among others. These libraries rely on the user to execute
+        their JavaScript file and as a result the library would introduce a global object
+        with all the attributes of that library.
         </p>
+
+        <p>Now, let us look into how we can create our own modules in Node</p>
 
 
         <h1>Creating Your Own Modules</h1>
@@ -57,7 +66,135 @@
 
         <p>Let us create a couple of Node.js modules and see how they interact with eachother.</p>
 
-        <p>We can start with a very simple math module</p>
+        <p>We can start with a very simple math module. For now all the math module will do is
+        simply run a "hello, world" program.</p>
+
+        <div class="example">
+        <div class="name"><h1>math.js</h1></div>
+        <div class="pre">
+        <pre>
+// math.js
+console.log('Hello, World!');
+        </pre>
+        </div>
+        </div>
+
+
+        <p>Now we can have a simple main file</p>
+        <div class="example">
+        <div class="name"><h1>main.js</h1></div>
+        <div class="pre">
+        <pre>
+// main.js
+require("./math.js")
+        </pre>
+        </div>
+        </div>
+
+
+        <p>This simple module main class will import the beginning of our math module.
+        It is important to note that like many other dynamic languages, node will
+        actually execute the required module like a program. This causes the require
+        statement in the main program to actually print "Hello, World!" to the screen.
+
+        Notice that the require statement requires the './' in front of the name to indicate
+        that we are requiring a file in the current directory. This is important; without
+        that qualifier, Node will crash, unable to find the module.
+
+        More important to note is that the require path is relative to the file that
+        is being executed, not the directory the current shell is in.
+        </p>
+
+
+        <p>Our module right now is not very useful. All it does is print "Hello, World!"
+        This is not particularly grand, so how do we create modules that are actually
+        useful? The answer is with this magical object called "exports."</p>
+
+        <p>Recall that what Node does is execute a file to import it. What the require function
+        does is first create an empty object called "exports." Then, node executes the
+        JavaScript file given. Finally, require will return that exports object.</p>
+
+        <p>This method of implementing modular functionality may seem quite primitive. It
+        is primitive, but that actually works in Node's favor. Modules from Node enjoy many
+        benefits that other languages simply do not. For example, modules in Node are just
+        objects and may be passed to functions as arguments. This is something that only
+        a handful of languages can claim. Node goes beyond that still. This mechanism for
+        creating modules make encapsulation wonderfully easy to implement. This is a huge
+        win for Node because it allows for better design by the makers of libraries.
+        </p>
+
+        <p>With this in mind, let's take a look at how to extend our math module to me
+        a little more useful than just implementing the hello world program again</p>
+
+        <div class="example">
+        <div class="name"><h1>math.js</h1></div>
+        <div class="pre">
+        <pre>
+// math.js
+console.log('You are importing the math library!!!');
+
+exports.PI = 3.1415927
+
+exports.circleArea = function(radius) {
+    return exports.PI * radius * radius;
+}
+        </pre>
+        </div>
+        </div>
+
+        <div class="example">
+        <div class="name"><h1>math.js</h1></div>
+        <div class="pre">
+        <pre>
+var math = require('./math.js')
+
+console.log("pi: " + math.PI)
+console.log("area(5): " + math.circleArea(5))
+        </pre>
+        </div>
+        </div>
+
+        <p>Recall that the exports object is actually the object we use and it is actually passed into us.</p>
+
+        <p>Perhaps some believe this is verbose. After all, do you really have to put 'export.' in front of
+        everything? Good news is no!</p>
+
+        <p>There is another way to design modules in Node. When earlier I said that the require function created
+        the exports object, that was only a half truth. The full truth is that this function actually create an
+        object called 'module.' This module object contains an attribute called 'exports' which points to the same
+        object as the global name!<p>
+
+        <p>With how JavaScript works, we can directly set this attribute to something such
+        as how the next code sample does it:</p>
+        <div class="example">
+        <div class="name"><h1>math.js</h1></div>
+        <div class="pre">
+        <pre>
+console.log('You are importing the math library!!!');
+
+var pi = 3.1415927
+
+module.exports = {
+    PI: pi,
+    circleArea: function(radius) {
+        return pi * radius * radius
+    }
+}
+        </pre>
+        </div>
+        </div>
+
+
+        <h1>The Module Object</h1>
+
+        <p>
+        I already stated previously that the exports attribute wasn't the only game
+        in town, but what other stuff do modules have? Well, NodeJS is unique in that
+        it encodes all information about modules as a part of the code of the module.
+        The module object contains attributes such as its dependencies, whether it is
+        loaded, its filename, and its name. This is a neat concept because it allows
+        for dynamic introspection of modules themselves.
+        </p>
 
     </div>
 </body>
