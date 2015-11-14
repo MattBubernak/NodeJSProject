@@ -2,18 +2,18 @@
 <html lang="en" >
 
 <head>
-		<title>Node.JS Tutorial</title>
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <title>Node.JS Tutorial</title>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -21,7 +21,7 @@
     <div class="container">
         <h1>Modules</h1>
 
-        <h2>What are modules in Node</h2>
+        <h3>What are Node Modules?</h3>
         Modules in Node are exactly the same as modules in other languages. It allows
         you to import functionality from other parts of the program. It allows the
         programmer to more effectively break up program code into multiple different
@@ -54,7 +54,7 @@
         <p>Now, let us look into how we can create our own modules in Node</p>
 
 
-        <h1>Creating Your Own Modules</h1>
+        <h3>Creating Your Own Modules</h3>
 
         <p>Modules in Node.js look different from modules in other languages. We saw how to use modules
         in some previous examples, but we did not see how to create a module. </p>
@@ -185,7 +185,7 @@ module.exports = {
         </div>
 
 
-        <h1>The Module Object</h1>
+        <h3>The Module Object</h3>
 
         <p>
         I already stated previously that the exports attribute wasn't the only game
@@ -194,6 +194,46 @@ module.exports = {
         The module object contains attributes such as its dependencies, whether it is
         loaded, its filename, and its name. This is a neat concept because it allows
         for dynamic introspection of modules themselves.
+        </p>
+
+        <h1>The Node Package Manager (npm)</h1>
+
+        <p>
+        Like many frameworks, NodeJS has its own package manager to facilitate the
+        installation of commonly used packages. Npm is not only the package manager
+        for Node, but all sorts of JavaScript frameworks. Npm has a couple of different
+        ways to install packages. It can either install packages as local packages
+        or as global packages.
+        </p>
+
+        <h3>Local Packages</h3>
+        <p>
+        If a package is installed as a local package, it is installed in a folder
+        called node_modules. These packages will only be available to the current
+        node project.
+        </p>
+
+        <p>
+        There are several advantages to using local packages. The first is that
+        it make dependency tracking a lot cleaner. In many cases, having global
+        packages installed for different node projects can eventually lead to
+        dependency conflicts. Another huge win for local packages is used when
+        shipping a node application. If pushing the node application to a remote
+        server, you won't have to worry about making sure the correct dependencies
+        are installed because the dependencies are bundled with the application.
+        </p>
+
+        <h3>Global Packages</h3>
+        <p>
+        If a package is installed with the '-g' option, it is installed as a global
+        package. This means all node applications will have access to this module.
+        </p>
+        <p>
+        The main advantage with using a global package is that you only need to install
+        the package once and you have it available for all projects. This is common
+        for very commonly used packages like <i>express</i>. This does come as a cost;
+        however, because to install a package globally on UNIX-like systems requires
+        root access, while installing packages locally does not.
         </p>
 
     </div>
