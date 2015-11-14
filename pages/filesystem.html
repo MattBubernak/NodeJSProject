@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+        <title>Node JS Tutorial</title>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></link>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
+
+<body> 
+    <!-- INTRO --> 
+    <h1>File System</h1>
+    <p>Another critical module to node.js is the file system module. Most applications that we develop end up needing to interact with other things on the machine. Now as many of us know everything in linux is a file and all data is stored is some sort of data file stored on the hard drive. So a normal question to ask then is; How to I read and write to and from a file using node? Well lucky for us the answer is not to complicated because node has a very easy to use module called fs (short for filesystem).</p>
+    <br>
+    <h3>Syncronous Read</h3>
+    <p>The first thing we need to do, like any module, is import it to the code. </p> <code>var fs = require("fs");</code>
+    <br>
+    <p>Then we are able to use the fs module easily. The powerful thing about the fs module though is that not only does it have synchronous methods but it also supports a sync methods. Lets look at the sync methods first to read from a file and print the contents to the terminal we do:</p>
+    <pre>
+        <code>
+var fs = require("fs");
+
+var fileContents = fs.readFileSync('file.txt');
+console.log("File contains: " + data.toString());
+        </code>
+    </pre>
+    
+    <br>
+
+    <p>This is just as easy as it looks. The program will load the contents of file.txt into the fileContents variable. This is a synchronous call so if it takes 5 minutes to complete then the program will sit there waiting for 5 minutes untill it completes the read. No events will be processed in that time period.</p>
+    <br>
+    <h3>Asyncrounous Read</h3>
+    <p>One of the things you could easily be concerned about in the above example is the fact that there are plenty of situations that you don't want a synchronous read but instead want to perform the read on a background thread. Well have no fear every synchronous function that is provided by the fs module also has a async version. To do the same read as we do above, we do the following:</p>
+    <pre>
+        <code>
+var fs = require("fs");
+
+fs.readFile('file.txt', function (err, data) {
+   if (err) {
+       return console.error(err);
+   }
+   console.log("File contains: " + data.toString());
+});
+        </code>
+    </pre>
+    
+    <br>
+    <p>Here you are telling the fs module to read the file and then once the file is read call the anonymous function. This function call is pushed onto the event loop so instead of waiting for the read to complete node keeps executing other events that need to be processed or goes to sleep untill there are more events. </p>
+    <br>
+    <h3>Writting to a file</h3>
+    <p>Writting to a file with node.js is just as easy as the read and uses almost the same syntax. Just like the read example there are two versions of the write, the synchronous and the asynchronous versions. Here is how to do both of them:</p>
+    <pre>
+        <code>
+//Async Version
+var fs = require('fs');
+fs.writeFile("DataFile.txt", "File Contents!", function(err) {
+    //This function gets called when the write is completed.
+    if(err) {
+        return console.log(err);
+    }
+    console.log("We wrote the file contents!");
+});
+
+//Sync Version
+var fs = require('fs');
+fs.writeFileSync('DataFile.txt', "File Contents");
+        </code>
+    </pre>
+    
+    <br>
+    
+    <h3>FS Module</h3>
+    <p>File IO is critical and the fs module provides complete functionality for anything you might want to do regarding interacting with the file system. The module is so large that we could not possibly hope to discuss all the inter-workings and methods but hopefully, now you have a basic understanding of the fs module.</p>
+</body>
+</html>

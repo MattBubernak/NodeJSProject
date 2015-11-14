@@ -135,13 +135,13 @@ eventEmitter.on('event', ourhandler);
 
     </code></pre>
     
-    <p>The final step is to to them emmit the event. We can tie it all together now with emmitting the event. </p>
+    <p>The final step is to them emit the event. We can tie it all together now with emitting the event. </p>
     
             <pre> <code>
 //Require the module
 var events = require("events");
 
-//Create the event emiter
+//Create the event emitter
 var eventEmitter = new events.EventEmitter();
 
 //Create the handler
@@ -157,10 +157,12 @@ eventEmitter.emit('event');
 
     </code></pre>
     
-    <p>That is all it takes to set up event emitters and event handlers in Node.JS. You can test this code by copying into a file called main.js and running node main.js and testing the output. The events module provides events like this in a synchronous way using the observer design pattern. </p>
+    <p>That is all it takes to set up event emitters and event handlers in Node.JS. You can test this code by copying into a file called main.js and running node main.js and testing the output. The events module provides events like this in a synchronous way using the observer design pattern.</p>
+    
+    <h3>Next Chapter</h3>
+    
+    <p>We have talked about the event queue and how to start your very own node application the next thing we are going to talk about are these modules you have heard so much about. Click the modules button at the top of the screen to learn more.</p>
         
-    <h3>A-Sync Function Calls</h3>
-    <p>Even though the event emitters are an extremely powerful there still are synchronous events. No other event will get pulled off of the main event queue until all the event handlers are processed. While this can be extremely useful there are times where we want truly asynchronous function calls. To do this we can use another module called fs.</p>
     </div>
 </body>
 </html>
